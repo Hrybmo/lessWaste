@@ -4,6 +4,7 @@ requirements
 - using ZMOD global settings
 - awesome optimization based on bambufy
 - might be a seperate project or pushed back depending on where this goes
+- Compatability with .25 mm, .40 mm, and .6 mm nozzles. (.8 mm is assumed to work)
 # lessWate AD5X
    - Compatible with Orca slicer ([3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf))
    - Purge sequences fully controlled by the slicer (same behavior as
