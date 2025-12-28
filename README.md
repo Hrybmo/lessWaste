@@ -1,5 +1,5 @@
 # WIP - ALPHA
-requirements
+Requirements
 - Orcaslicer compatability
 - using ZMOD global settings
 - awesome optimization based on bambufy
