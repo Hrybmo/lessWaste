@@ -1,9 +1,14 @@
-# WIP - ALPHA
-requirements
-- Orcaslicer compatability
+# WIP - BETA
+Requirements
+- AD5X and Orcaslicer
 - using ZMOD global settings
-- awesome optimization based on bambufy
+- awesome optimization based on bambufy, focusing on purging out the back with a minimal prime tower
 - might be a seperate project or pushed back depending on where this goes
+- Compatability with .25 mm, .40 mm, and .6 mm nozzles
+  
+Whats working
+- LINE_PURGE from ZMOD global setting
+
 # lessWate AD5X
    - Compatible with Orca slicer ([3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf))
    - Purge sequences fully controlled by the slicer (same behavior as
@@ -35,8 +40,16 @@ requirements
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - Change web ui to **Mainsail** running the `WEB` command
+- In Mainsail, go to Machine tab, /config/mod_data/user.moonraker.conf and add the following:   
+[update_manager lessWaste]   
+type: git_repo   
+channel: dev   
+path: /root/printer_data/config/mod_data/plugins/lessWaste   
+origin: https://github.com/Hrybmo/lessWaste.git   
+is_system_service: False   
+primary_branch: master
 - Run `ENABLE_PLUGIN name=lessWaste` command from the console.
-- Use this [3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf) with Orca slicer.
+- Use MACHINE_GCODE.md for Orcaslicer settings.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
