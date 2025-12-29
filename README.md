@@ -1,13 +1,14 @@
 # WIP - BETA
 Requirements
 - AD5X and Orcaslicer
-- using ZMOD global settings
-- awesome optimization based on bambufy, focusing on purging out the back with a minimal prime tower
-- might be a seperate project or pushed back depending on where this goes
+- Using ZMOD global settings
+- Awesome optimization based on bambufy, focusing on purging out the back with a minimal prime tower
+- Might be a seperate project or pushed back depending on where this goes
 - Compatability with .25 mm, .40 mm, and .6 mm nozzles
   
 Whats working
-- LINE_PURGE from ZMOD global setting
+- Printing, start to finish, not all functionality tested though
+- LINE_PURGE toggle from ZMOD global setting
 
 # lessWate AD5X
    - Compatible with Orca slicer ([3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf))
