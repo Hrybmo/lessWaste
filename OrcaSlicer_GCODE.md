@@ -1,4 +1,4 @@
-# Machine G-code for Bambu Studio and Orca slicer
+# Machine G-code for Orca slicer
 
 ## Orca slicer: Machine start G-code
 
@@ -195,3 +195,7 @@ M204 S[default_acceleration]
 ```
 PAUSE
 ```
+## Flush volumes
+Set multiplier to 1, re-calculate, then set any value lower than 90 to 90.
+
+<img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
