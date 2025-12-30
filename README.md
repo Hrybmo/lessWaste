@@ -15,6 +15,7 @@ Test conditions
 - USB camera
 - zmod 1.6.4.425.2-73-gaea03b5e
 - recommend 1.1.5-0-g1f759590
+- AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware
   
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
