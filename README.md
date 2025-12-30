@@ -25,7 +25,7 @@ origin: https://github.com/Hrybmo/lessWaste.git
 is_system_service: False   
 primary_branch: master
 - Run `ENABLE_PLUGIN name=lessWaste` command from the console.
-- Use MACHINE_GCODE.md for Orcaslicer settings.
+- Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
