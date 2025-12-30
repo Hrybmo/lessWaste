@@ -6,7 +6,7 @@ Requirements
 - Compatable with .25 mm, to .6 mm nozzles
   
 Changes relative to bambufy
-- Enhanced print start routine
+- Altered print start routine
 - LINE_PURGE toggle with popup
 
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
