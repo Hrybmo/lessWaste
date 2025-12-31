@@ -1,19 +1,16 @@
-# Beta testing
-Requirements
-- AD5X and Orcaslicer focus
-- Awesome optimization based on bambufy, focusing on purging out the back with a minimal prime tower
-- Might be a seperate project or pushed back depending on where this goes
-- Compatable with .25 mm, to .6 mm nozzles
-  
+## AD5X with ZMOD and Orcaslicer
+Awesome optimization based on bambufy.
+This project is focused on purging out the back with a minimal prime tower, I find it the best way to reduce waste.
+
 Changes relative to bambufy
 - Altered print start routine
-- LINE_PURGE toggle with popup
+- LINE_PURGE toggle in dialog
 
 Test conditions
 - Enabled Plugins: recommend,lessWaste
 - Klipper 13
 - USB camera
-- zmod 1.6.4.425.2-73-gaea03b5e
+- zmod 1.6.4.425.2-98-gc96d5b6c
 - recommend 1.1.5-0-g1f759590
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware
   
