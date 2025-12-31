@@ -107,7 +107,7 @@ def parse_feedrates(text: str) -> str:
 
 def parse_change_filament_gcode_version(text: str) -> str:
     """Extract version from change_filament_gcode"""
-    match = re.search(r";\s*Bambufy:\s*v*([\d.]+)", text)
+    match = re.search(r";\s*lessWaste:\s*v*([\d.]+)", text)
     version = match.group(1) if match else '1.2.2'
     return version
 

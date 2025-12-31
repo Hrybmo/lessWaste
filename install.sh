@@ -17,7 +17,7 @@ awk '
   next
 }
 /^ifs_/ {
-  sub(/^ifs_/, "bambufy_")
+  sub(/^ifs_/, "lessWaste_")
   print
   next
 }

@@ -43,7 +43,7 @@ With this unified gcode for filament change, you only need to enable or disable 
 
 ```
 ; Machine: AD5X
-; Bambufy: v1.2.3
+; lessWaste: v1.2.3
 {if old_filament_temp < new_filament_temp}
 M104 S[new_filament_temp]
 {endif}
