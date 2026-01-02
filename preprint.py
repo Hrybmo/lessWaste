@@ -4,7 +4,7 @@ import os
 import re
 import hashlib
 
-CHUNK_SIZE = 10*1024*1024
+CHUNK_SIZE = 65536
 PRINTER_PATH = "postProcessed.txt"
 
 # ------------------------------------------------------------
@@ -31,7 +31,6 @@ def stream_detect_slicer_and_metadata(path):
     tools = set()
     tool_regex = re.compile(r"\bT(\d+)\b")
 
-    # Metadata keys we need to capture exactly as your original script expects
     metadata_keys = [
         "; nozzle_temperature =",
         "; hot_plate_temp =",
@@ -88,16 +87,11 @@ def stream_detect_slicer_and_metadata(path):
                 elif after_layer_count == 2:
                     in_first_layer = False
                     
-            # NEW: capture tools anywhere in the file 
             for m in tool_regex.finditer(line):
                 tools.add(m.group(1))
 
             if in_first_layer:
                 first_layer_lines.append(line)
-
-            # Stop early if we have everything we need
-            if after_layer_count >= 2 and slicer and already is not None:
-                break
 
     # Parse colors/types
     if filament_colour_line:
