@@ -4,8 +4,8 @@ import os
 import re
 import hashlib
 
-CHUNK_SIZE = 10 * 1024 * 1024
-PRINTER_PATH = "/tmp/printer"
+CHUNK_SIZE = 65536
+PRINTER_PATH = "postProcessed.txt"
 
 # ------------------------------------------------------------
 # STREAMING HELPERS
@@ -256,7 +256,7 @@ def main():
         sys.exit(1)
 
     file_path = sys.argv[1]
-
+    print("Parsing G-code...")
     (
         slicer,
         already,
@@ -268,10 +268,10 @@ def main():
         bambu_metadata,
         tools
     ) = stream_detect_slicer_and_metadata(file_path)
-
+    print("Complete")
     if already:
-        print("Already post-processed")
-        print(already)
+        print("Already post-processed" + "\n")
+        #print(already)
         with open(PRINTER_PATH, "a", encoding="utf-8") as f:
             f.write(already)
         sys.exit(0)
@@ -288,10 +288,10 @@ def main():
         f'EXCLUDE="{exclude}"'
     )
 
-    print(ifs_colors + "\n")
-
+    #print(ifs_colors + "\n")
+    print("Generating G-code MD5...")
     process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata)
-
+    print("Complete")
     if not any(k.startswith("SLIC3R_") for k in os.environ):
         with open(PRINTER_PATH, "a", encoding="utf-8") as f:
             f.write(ifs_colors + "\n")
