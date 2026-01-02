@@ -5,7 +5,7 @@ import re
 import hashlib
 
 CHUNK_SIZE = 65536
-PRINTER_PATH = "postProcessed.txt"
+PRINTER_PATH = "/tmp/printer"
 
 # ------------------------------------------------------------
 # STREAMING HELPERS
