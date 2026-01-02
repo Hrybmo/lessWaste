@@ -4,7 +4,7 @@ import os
 import re
 import hashlib
 
-CHUNK_SIZE = 4096
+CHUNK_SIZE = 10*1024*1024
 PRINTER_PATH = "postProcessed.txt"
 
 # ------------------------------------------------------------
