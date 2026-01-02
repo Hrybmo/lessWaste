@@ -6,7 +6,8 @@ import hashlib
 from typing import List
 from typing import Optional
 
-PRINTER_PATH = "/tmp/printer"
+CHUNK_SIZE = 4096  # safe for MCU RAM
+PRINTER_PATH = "postProcessed.txt"
 
 def read_file(path: str) -> str:
     """Read the full content of a text file with UTF-8 encoding."""
@@ -156,6 +157,55 @@ def write_to_file(path: str, content: str):
     except OSError as e:
         print(f"Error when writing in {path}: {e}")
 
+def process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata):
+    temp_path = file_path + ".tmp"
+
+    # ---------- PASS 1: Compute MD5 ----------
+    md5 = hashlib.md5()
+
+    # Add the colors header to the hash
+    header_line = "; " + ifs_colors + "\n"
+    md5.update(header_line.encode("utf-8"))
+
+    with open(file_path, "rb") as f:
+        while True:
+            chunk = f.read(CHUNK_SIZE)
+            if not chunk:
+                break
+            md5.update(chunk)
+
+    md5.update(bambu_metadata.encode("utf-8"))
+    md5_hash = md5.hexdigest()
+    md5_line = "; MD5:" + md5_hash + "\n"
+
+    # ---------- PASS 2: Write to temp file ----------
+    with open(temp_path, "wb") as out, open(file_path, "rb") as f:
+        # Write MD5 line
+        out.write(md5_line.encode("utf-8"))
+
+        # Write colors header
+        out.write(b"; ")
+        out.write(ifs_colors.encode("utf-8"))
+        out.write(b"\n")
+
+        # Stream the rest
+        while True:
+            chunk = f.read(CHUNK_SIZE)
+            if not chunk:
+                break
+            out.write(chunk)
+
+        # Append metadata
+        out.write(bambu_metadata.encode("utf-8"))
+
+    # ---------- Replace original file safely ----------
+    try:
+        os.remove(file_path)
+    except OSError:
+        pass  # If it doesn't exist, that's fine
+
+    os.rename(temp_path, file_path)
+
 def main():
     if len(sys.argv) < 2:
         print("Use: preprint.py <file.gcode>")
@@ -198,17 +248,7 @@ def main():
     print(ifs_colors + "\n")
 
     try:
-        lines = gcode.splitlines(keepends=True)
-        if lines and lines[0].startswith("; MD5:"):
-            lines.pop(0)
-            gcode = "".join(lines)
-        new_gcode_str = "; " + ifs_colors + "\n" + gcode + bambu_metadata
-        new_gcode_bytes = new_gcode_str.encode("utf-8")
-        md5_hash = hashlib.md5(new_gcode_bytes).hexdigest()
-        md5_line = b"; MD5:" + md5_hash.encode("ascii") + b"\n"
-        final_gcode = md5_line + new_gcode_bytes
-        with open(file_path, "wb") as f:
-            f.write(final_gcode)
+        process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata)
     except OSError as e:
         print(f"Error when writing in {file_path}: {e}")
 
