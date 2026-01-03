@@ -1,6 +1,5 @@
-## AD5X with ZMOD and Orcaslicer
-Awesome optimization based on bambufy.
-This project is focused on purging out the back with a minimal prime tower, I find it the best way to reduce waste.
+# lessWaste for the AD5X with ZMOD and OrcaSlicer
+## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
 Changes relative to bambufy
 - Altered print start routine
@@ -10,11 +9,9 @@ Test conditions
 - Enabled Plugins: recommend,lessWaste
 - Klipper 13
 - USB camera
-- zmod 1.6.4.425.2-98-gc96d5b6c
+- zmod 1.6.4.425.2-110-gba7dc9a8
 - recommend 1.1.5-0-g1f759590
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware
-  
-## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
 ## How to install
 
