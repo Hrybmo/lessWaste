@@ -3,7 +3,7 @@ import sys
 import os
 import re
 import hashlib
-
+import time
 CHUNK_SIZE = 65536
 PRINTER_PATH = "/tmp/printer"
 
@@ -14,7 +14,7 @@ PRINTER_PATH = "/tmp/printer"
 def stream_detect_slicer_and_metadata(path):
     """Streaming pass: detect slicer, detect _IFS_COLORS, extract metadata lines,
        extract filament colors/types, feedrates, and capture first layer."""
-    slicer = ""
+    slicer = "orca"
     already = None
     colors = []
     types = []
@@ -29,7 +29,6 @@ def stream_detect_slicer_and_metadata(path):
     in_first_layer = False
     after_layer_count = 0
     tools = set()
-    tool_regex = re.compile(r"\bT(\d+)\b")
 
     metadata_keys = [
         "; nozzle_temperature =",
@@ -47,20 +46,21 @@ def stream_detect_slicer_and_metadata(path):
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
         for line in f:
             # Detect slicer (first 20 lines only)
-            if not slicer:
-                if "BambuStudio" in line:
-                    slicer = "bambu"
-                elif "OrcaSlicer" in line:
-                    slicer = "orca"
+            #if not slicer:
+            #    if "BambuStudio" in line:
+            #        slicer = "bambu"
+            #    elif "OrcaSlicer" in line:
+            #        slicer = "orca"
 
             # Detect already processed
             if already is None and line.startswith("; _IFS_COLORS"):
                 already = line.strip() + "\n"
+                break
 
             # Capture metadata lines
-            for key in metadata_keys:
-                if key in line and key not in metadata_lines:
-                    metadata_lines[key] = line.strip()
+            #for key in metadata_keys:
+            #    if key in line and key not in metadata_lines:
+            #        metadata_lines[key] = line.strip()
 
             # Capture filament colors/types
             if line.startswith("; filament_colour ="):
@@ -73,7 +73,7 @@ def stream_detect_slicer_and_metadata(path):
                 filament_max_vol_line = line
 
             # Capture change_filament_gcode version
-            if "less_waste:" in line:
+            if version == "1.2.2" and "less_waste:" in line:
                 m = re.search(r"less_waste:\s*v([\d.]+)", line)
                 if m:
                     version = m.group(1)
@@ -87,11 +87,13 @@ def stream_detect_slicer_and_metadata(path):
                 elif after_layer_count == 2:
                     in_first_layer = False
                     
-            for m in tool_regex.finditer(line):
-                tools.add(m.group(1))
-
             if in_first_layer:
                 first_layer_lines.append(line)
+
+            if line.startswith("T"):
+                part = line[1:].split()[0]
+                if part.isdigit():
+                    tools.add(part)
 
     # Parse colors/types
     if filament_colour_line:
@@ -257,6 +259,7 @@ def main():
 
     file_path = sys.argv[1]
     print("Parsing G-code...")
+    start = time.time()
     (
         slicer,
         already,
@@ -268,7 +271,8 @@ def main():
         bambu_metadata,
         tools
     ) = stream_detect_slicer_and_metadata(file_path)
-    print("Complete")
+    end = time.time()
+    print("Complete - " + f" took {end - start:.4f} seconds")
     if already:
         print("Already post-processed" + "\n")
         #print(already)
@@ -290,8 +294,10 @@ def main():
 
     #print(ifs_colors + "\n")
     print("Generating G-code MD5...")
+    start = time.time()
     process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata)
-    print("Complete")
+    end = time.time()
+    print("Complete - " + f" took {end - start:.4f} seconds")
     if not any(k.startswith("SLIC3R_") for k in os.environ):
         with open(PRINTER_PATH, "a", encoding="utf-8") as f:
             f.write(ifs_colors + "\n")
