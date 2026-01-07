@@ -14,7 +14,7 @@ Test conditions:
 - zmod 1.6.4.425.2-110-gba7dc9a8
 - recommend 1.1.5-0-g1f759590
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware
-- Fluidd interface
+- Mainsail interface
 
 This is stable but I want to put more miles and tweaks on it before proposing anything official
 
