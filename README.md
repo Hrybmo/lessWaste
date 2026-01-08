@@ -1,4 +1,4 @@
-# lessWaste for the AD5X with ZMOD and OrcaSlicer
+# lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 *Does not work with Bambu Studio - removed functions for a performance boost
 
@@ -13,7 +13,8 @@ Test conditions:
 - USB camera
 - zmod 1.6.4.425.2-110-gba7dc9a8
 - recommend 1.1.5-0-g1f759590
-- AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware
+- AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
+  https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
 - Mainsail interface
 
 This is stable but I want to put more miles and tweaks on it before proposing anything official
