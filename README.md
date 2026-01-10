@@ -64,6 +64,11 @@ Best used for: Infrequent filament swaps where it is more efficient to build a s
 
 Notes: Use the print time and total filament used to compare between options. You can estimate the reduction in purge needed with the "Flush into" option and adjust the "Flushing volume" amount to compensate, but there is a risk that some layers will bleed more than others.
 
+## Flush volumes starting point
+Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
+
+<img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
+
 ## Credits
 - Raúl (function3d) [bambufy](https://github.com/function3d/bambufy)
 - Sergei (ghzserg) [zmod](https://github.com/ghzserg/zmod)
