@@ -22,7 +22,7 @@ This is stable but I want to put more miles and tweaks on it before proposing an
 - Downgrade to 1.1.7 Firmware if needed on AD5X (removes forced start routine) 
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)   
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
-- Change web ui to **Mainsail** running the `WEB` command if you want but may have disconnect issues
+- (Optional) Change web ui to **Mainsail** running the `WEB` command
 - In ui, go to Machine/configuration tab, /config/mod_data/user.moonraker.conf, and add the following:   
 [update_manager lessWaste]   
 type: git_repo   
