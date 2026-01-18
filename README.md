@@ -3,20 +3,23 @@
 *Does not work with Bambu Studio - removed functions for a performance boost
 
 Changes relative to bambufy:
-- Altered print start routine
+- Start print routine
   - Reduce oozing
   - Raise bed in advance
-- LINE_PURGE toggle in dialog
+- Start dialog
+  - Backup functional
+  - Purge line added
+  - Layout change
 - Handles large G-code
-- Altered end print routine
-  - Leave the print quick
+- End print routine
+  - Reduce oozing
   - Purge filament that is stuck in the tube between the extruder and IFS when the reel is empty
 
 Test conditions:
 - Enabled Plugins: recommend,lessWaste
 - Klipper 13
 - USB camera
-- zmod 1.6.4.425.2-110-gba7dc9a8
+- zmod 1.6.5.464-24-gcead783b
 - recommend 1.1.5-0-g1f759590
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
   https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
@@ -54,7 +57,7 @@ Pros: The settings "Flush into object's infill", "Flush into objects' support", 
 
 Cons: A large prime tower is generally required, taking up volume.
 
-Best used for: High levels of filament swaps and large models.
+Best used for: High levels of filament swaps.
 
 Notes: Placing the prime tower close to the cutter area works well to reduce oozing and is required if using "No sparse layers (beta)". Use the print time and total filament used to compare between options.
 
@@ -67,7 +70,7 @@ Cons: The settings "Flush into object's infill" and "Flush into objects' support
 
 Best used for: Infrequent filament swaps where it is more efficient to build a small prime tower instead of a large one on every layer.
 
-Notes: Use the print time and total filament used to compare between options. You can try to estimate the reduction in purge needed with the "Flush into" options and adjust the "Flushing volume" amount to compensate, but there is a risk that some layers will bleed more than others.
+Notes: Use the print time and total filament used to compare between options.
 
 ## Flush volumes starting point
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
