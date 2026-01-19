@@ -4,15 +4,15 @@
 
 Changes relative to bambufy:
 - Start print routine
-  - Reduce oozing
+  - Reduce ooze
   - Raise bed in advance
 - Start dialog
-  - Backup functional
-  - Purge line added
+  - Full backup
+  - Purge line toggle
   - Layout change
 - Handles large G-code
 - End print routine
-  - Reduce oozing
+  - Reduce ooze
   - Purge filament that is stuck in the tube between the extruder and IFS when the reel is empty
 
 Test conditions:
@@ -57,20 +57,51 @@ Pros: The settings "Flush into object's infill", "Flush into objects' support", 
 
 Cons: A large prime tower is generally required, taking up volume.
 
-Best used for: High levels of filament swaps.
+Best used for: Flushing into things. 
 
-Notes: Placing the prime tower close to the cutter area works well to reduce oozing and is required if using "No sparse layers (beta)". Use the print time and total filament used to compare between options.
+Notes: Placing the prime tower close to the cutter area works well to reduce oozing and is required if using "No sparse layers (beta)". Use the "print time" and "total filament used" to compare between options.
 
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
 
 Pros: A small prime tower is required, less area needed on the build plate. Respects "flushing volumes".
 
-Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount (OrcaSlicer issue).
+Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
 
-Best used for: Infrequent filament swaps where it is more efficient to build a small prime tower instead of a large one on every layer.
+Best used for: Where it is more efficient to build a small prime tower instead of a large one on every layer.
 
-Notes: Use the print time and total filament used to compare between options.
+Notes: Use the "print time" and "total filament used" to compare between options.
+
+## Settings
+### Backup
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated.
+
+Example below: T0 does not have a backup but T2 does. If filament three runs out then filament two will automatically load and continue.
+
+<img width="393" height="275" alt="image" src="https://github.com/user-attachments/assets/45b99d51-f7ab-459e-8a60-ea5f0dcfee8b" />
+
+Example below: The location is empty so not available for backup. 
+
+<img width="384" height="275" alt="image" src="https://github.com/user-attachments/assets/2d418d09-53fd-48c3-ba74-056e871fd745" />
+
+Example below: Missing key filament so unable to start the print.
+
+<img width="382" height="273" alt="image" src="https://github.com/user-attachments/assets/973b2448-5b69-4dfa-8d10-4c89decbc966" />
+
+Example below: Double backups!
+
+<img width="388" height="278" alt="image" src="https://github.com/user-attachments/assets/d09fc2c0-131d-419f-833c-8f8f543b35b2" />
+
+### LEVELING
+Description: Performs a bed mesh leveling in the print area at start.
+
+### LINE_PURGE
+Description: Creates a purge line in front or to the side of the print.
+
+Pros: quicker than a skirt or similar primer.
+
+### IFS
+Description: With this disabled, The filament stays in the hotend from print to print.
 
 ## Flush volumes starting point
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
