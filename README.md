@@ -108,6 +108,13 @@ Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
 
 <img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
 
+---
+<div align="center">
+
+## [❤️ Consider supporting this development ❤️](https://github.com/sponsors/Hrybmo)
+
+</div>
+
 ## Credits
 - Raúl (function3d) [bambufy](https://github.com/function3d/bambufy)
 - Sergei (ghzserg) [zmod](https://github.com/ghzserg/zmod)
