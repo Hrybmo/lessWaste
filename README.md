@@ -64,7 +64,7 @@ Notes: Placing the prime tower close to the cutter area works well to reduce ooz
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
 
-Pros: A small prime tower is required, less area needed on the build plate. Respects "flushing volumes".
+Pros: A small prime tower is required, less area needed on the build plate. Respects "flushing volumes" when purging.
 
 Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
 
@@ -101,7 +101,7 @@ Description: Creates a purge line in front or to the side of the print.
 Pros: quicker than a skirt or similar primer.
 
 ### IFS
-Description: With this disabled, The filament stays in the hotend from print to print.
+Description: With this disabled, the filament stays in the hotend from print to print.
 
 ## Flush volumes starting point
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
