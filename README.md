@@ -19,7 +19,7 @@ Test conditions:
 - Enabled Plugins: recommend,lessWaste
 - Klipper 13
 - USB camera
-- zmod 1.6.5.464-24-gcead783b
+- zmod 1.6.5.464-44-g60a108a0
 - recommend 1.1.5-0-g1f759590
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
   https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
