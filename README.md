@@ -16,11 +16,11 @@ Changes relative to bambufy:
   - Purge filament that is stuck in the tube between the extruder and IFS when the reel is empty
 
 Test conditions:
-- Enabled Plugins: recommend,lessWaste
+- Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
 - USB camera
-- zmod 1.6.5.464-44-g60a108a0
-- recommend 1.1.5-0-g1f759590
+- zmod 1.6.6
+- recommend 1.1.5
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
   https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
 

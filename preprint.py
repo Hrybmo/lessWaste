@@ -276,9 +276,14 @@ def main():
     if already:
         print("Already post-processed" + "\n")
         #print(already)
-        with open(PRINTER_PATH, "a", encoding="utf-8") as f:
-            f.write(already)
-        sys.exit(0)
+        if not any(k.startswith("SLIC3R_") for k in os.environ):
+            print("Not writing to printer path...")
+            sys.exit(0)
+        else:
+            print("Writing to printer path...")
+            with open(PRINTER_PATH, "a", encoding="utf-8") as f:
+                f.write(already)
+            sys.exit(0)
 
     exclude = get_exclude_object_define_streaming(first_layer)
 
