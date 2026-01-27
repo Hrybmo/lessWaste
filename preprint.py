@@ -55,7 +55,7 @@ def stream_detect_slicer_and_metadata(path):
             # Detect already processed
             if already is None and line.startswith("; _IFS_COLORS"):
                 already = line.strip() + "\n"
-                break
+                #break #todo - optimize this later
 
             # Capture metadata lines
             #for key in metadata_keys:
