@@ -1,19 +1,12 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
-*Does not work with Bambu Studio - removed functions for a performance boost
+*Does not work with Bambu Studio, designed for OrcaSlicer
 
 Changes relative to bambufy:
 - Start print routine
-  - Reduce ooze
-  - Raise bed in advance
 - Start dialog
-  - Full backup
-  - Purge line toggle
-  - Layout change
-- Handles large G-code
+- Large G-code
 - End print routine
-  - Reduce ooze
-  - Purge filament that is stuck in the tube between the extruder and IFS when the reel is empty
 
 Test conditions:
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
@@ -74,7 +67,7 @@ Notes: Use the "print time" and "total filament used" to compare between options
 
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). Consumed channels can be reset during active printing by manually pushing the filament through the IFS channel to trigger the reset, the filament will need to get to the 4-1 input at somepoint which may be hard to see while printing.
 
 Example below: T0 does not have a backup but T2 does. If filament three runs out then filament two will automatically load and continue.
 
@@ -95,16 +88,16 @@ Example below: Double backups!
 ### LEVELING
 Description: Performs a bed mesh leveling in the print area at start.
 
-### LINE_PURGE
+### L_PURGE
 Description: Creates a purge line in front or to the side of the print.
 
-Pros: quicker than a skirt or similar primer.
+Pros: quicker than a skirt or similar priming.
 
 ### IFS
 Description: With this disabled, the filament stays in the hotend from print to print.
 
 ## Flush volumes starting point
-Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
+Set multiplier to 1, recalculate, then set any value lower than 90 to 90. 90 seems to be a safe value for nozzle pressure.
 
 <img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
 
