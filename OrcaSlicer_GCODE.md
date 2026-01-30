@@ -37,7 +37,9 @@ If you have created your profile without using the 3MF I provided, then take the
     - Minimal purge on prime tower: 15
    
 ##  Orca slicer: Change filament G-code, unified: poop and nopoop
-With this unified gcode for filament change, you only need to enable or disable this option to purge in the tower(nopoop) or in the form of poops
+With this unified gcode for filament change, you only need to enable or disable this option to purge in the tower(nopoop) or in the form of poops. 
+
+Bambufy version is accepted at this time as it is the same script but may be constrained in the future if changes occur.
 
 <img width="618" height="419" alt="image" src="https://github.com/user-attachments/assets/9554da95-0ee1-4b77-a690-e9f084397978" />
 
