@@ -76,7 +76,7 @@ def stream_detect_slicer_and_metadata(path):
             if version == "1.2.2" and ("less_waste:" in line or "Bambufy:" in line):    
                 m = re.search(r"(less_waste:|Bambufy:)\s*v([\d.]+)", line)
                 if m:
-                    version = m.group(1)
+                    version = m.group(2)
 
             # First layer extraction using Orca markers
             if line.startswith(";AFTER_LAYER_CHANGE"):
