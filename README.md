@@ -1,11 +1,12 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
-*Does not work with Bambu Studio, designed for OrcaSlicer
+## *Does not work with Bambu Studio
 
 Changes relative to bambufy:
 - Start print routine
 - Start dialog
-- Large G-code
+- tweaks here and there
+- Large G-code parsing
 - End print routine
 
 Test conditions:
@@ -16,8 +17,6 @@ Test conditions:
 - recommend 1.1.5
 - AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
   https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
-
-This is stable but I want to put more miles and tweaks on it before proposing anything official
 
 ## How to install
 - Downgrade to 1.1.7 Firmware if needed on AD5X (removes forced start routine) 
@@ -52,7 +51,7 @@ Cons: A large prime tower is generally required, taking up volume.
 
 Best used for: Flushing into things. 
 
-Notes: Placing the prime tower close to the cutter area works well to reduce oozing and is required if using "No sparse layers (beta)". Use the "print time" and "total filament used" to compare between options.
+Notes: Placing the prime tower close to the cutter area works well when using "No sparse layers (beta)". Use the "print time" and "total filament used" to compare between options.
 
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
@@ -67,7 +66,7 @@ Notes: Use the "print time" and "total filament used" to compare between options
 
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be reset once there is nothing left and there is a pause.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and there is a pause.
 
 Example below: T0 does not have a backup but T2 does. If filament three runs out then filament two will automatically load and continue.
 
