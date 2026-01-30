@@ -87,6 +87,9 @@ Pros: quicker than a skirt or similar priming.
 ### IFS
 Description: With this disabled, the filament stays in the hotend from print to print.
 
+### Dialog
+Description: Provide on screen information when issues occur.
+
 ## Flush volumes starting point
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90. 90 seems to be a safe value for nozzle pressure.
 
