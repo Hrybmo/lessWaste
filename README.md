@@ -68,21 +68,13 @@ Notes: Use the "print time" and "total filament used" to compare between options
 ### Backup
 Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and there is a pause.
 
-Example below: T0 does not have a backup but T2 does. If filament three runs out then filament two will automatically load and continue.
+Example below: If filament one runs out then filament two will automatically load and continue.
 
-<img width="393" height="275" alt="image" src="https://github.com/user-attachments/assets/45b99d51-f7ab-459e-8a60-ea5f0dcfee8b" />
-
-Example below: The location is empty so not available for backup. 
-
-<img width="384" height="275" alt="image" src="https://github.com/user-attachments/assets/2d418d09-53fd-48c3-ba74-056e871fd745" />
-
-Example below: Missing key filament so unable to start the print.
-
-<img width="382" height="273" alt="image" src="https://github.com/user-attachments/assets/973b2448-5b69-4dfa-8d10-4c89decbc966" />
+<img width="388" height="414" alt="image" src="https://github.com/user-attachments/assets/80828ebf-00d4-49bc-96d9-16d94ef22158" />
 
 Example below: Double backups!
 
-<img width="388" height="278" alt="image" src="https://github.com/user-attachments/assets/d09fc2c0-131d-419f-833c-8f8f543b35b2" />
+<img width="390" height="456" alt="image" src="https://github.com/user-attachments/assets/fecc7423-b68a-484b-ae93-14ecac9ef49c" />
 
 ### LEVELING
 Description: Performs a bed mesh leveling in the print area at start.
