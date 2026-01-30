@@ -73,7 +73,7 @@ def stream_detect_slicer_and_metadata(path):
                 filament_max_vol_line = line
 
             # Capture change_filament_gcode version - either one for now
-            if version == "1.2.2" and ("less_waste:" in line or "bambufy" in line):    
+            if version == "1.2.2" and ("less_waste:" in line or "Bambufy:" in line):    
                 m = re.search(r"less_waste:\s*v([\d.]+)", line)
                 if m:
                     version = m.group(1)
