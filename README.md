@@ -1,6 +1,5 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
-## *Does not work with Bambu Studio
 
 Changes relative to bambufy:
 - Start print routine

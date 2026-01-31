@@ -14,7 +14,7 @@ PRINTER_PATH = "/tmp/printer"
 def stream_detect_slicer_and_metadata(path):
     """Streaming pass: detect slicer, detect _IFS_COLORS, extract metadata lines,
        extract filament colors/types, feedrates, and capture first layer."""
-    slicer = "orca"
+    slicer = ""
     already = None
     colors = []
     types = []
@@ -46,11 +46,11 @@ def stream_detect_slicer_and_metadata(path):
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
         for line in f:
             # Detect slicer (first 20 lines only)
-            #if not slicer:
-            #    if "BambuStudio" in line:
-            #        slicer = "bambu"
-            #    elif "OrcaSlicer" in line:
-            #        slicer = "orca"
+            if not slicer:
+                if "BambuStudio" in line:
+                    slicer = "bambu"
+                elif "OrcaSlicer" in line:
+                    slicer = "orca"
 
             # Detect already processed
             if already is None and line.startswith("; _IFS_COLORS"):
@@ -58,9 +58,9 @@ def stream_detect_slicer_and_metadata(path):
                 #break #todo - optimize this later
 
             # Capture metadata lines
-            #for key in metadata_keys:
-            #    if key in line and key not in metadata_lines:
-            #        metadata_lines[key] = line.strip()
+            for key in metadata_keys:
+                if key in line and key not in metadata_lines:
+                    metadata_lines[key] = line.strip()
 
             # Capture filament colors/types
             if line.startswith("; filament_colour ="):
