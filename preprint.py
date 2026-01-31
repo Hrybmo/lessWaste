@@ -57,10 +57,11 @@ def stream_detect_slicer_and_metadata(path):
                 already = line.strip() + "\n"
                 #break #todo - optimize this later
 
-            # Capture metadata lines
-            for key in metadata_keys:
-                if key in line and key not in metadata_lines:
-                    metadata_lines[key] = line.strip()
+            # Capture metadata lines for Bambu
+            if slicer != "orca":
+                for key in metadata_keys:
+                    if key in line and key not in metadata_lines:
+                        metadata_lines[key] = line.strip()
 
             # Capture filament colors/types
             if line.startswith("; filament_colour ="):
