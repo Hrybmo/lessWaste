@@ -9,14 +9,16 @@ Changes relative to bambufy:
 - End print routine
 
 Test conditions:
+- OrcaSlicer
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
 - USB camera
 - zmod 1.6.6
 - recommend 1.1.5
-- AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory firmware (Can downgrade with a flash drive. Best version IMO)
-  https://github.com/ghzserg/zmod/releases/download/R/AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz
+- [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R) firmware
+(Best version IMO)
 
+*In theory this should work with Bambu studio using [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) G-code but is not tested.
 ## How to install
 - Downgrade to 1.1.7 Firmware if needed on AD5X (removes forced start routine) 
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)   
@@ -89,7 +91,7 @@ Description: With this disabled, the filament stays in the hotend from print to 
 ### Dialog
 Description: Provide on screen information when issues occur.
 
-## Flush volumes starting point
+## Flush volumes starting point (OrcaSlicer)
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90. 90 seems to be a safe value for nozzle pressure.
 
 <img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
