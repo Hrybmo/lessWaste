@@ -24,14 +24,6 @@ Test conditions:
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)   
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
-- In ui, go to Machine/configuration tab, /config/mod_data/user.moonraker.conf, and add the following:   
-[update_manager lessWaste]   
-type: git_repo   
-channel: dev   
-path: /root/printer_data/config/mod_data/plugins/lessWaste   
-origin: https://github.com/Hrybmo/lessWaste.git   
-is_system_service: False   
-primary_branch: master
 - Run `ENABLE_PLUGIN name=lessWaste` command from the console (recommend should be enabled already)
 - Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
 
@@ -72,10 +64,6 @@ Description: If backup is enabled and there are matching filament types and colo
 Example below: If filament one runs out then filament two will automatically load and continue.
 
 <img width="388" height="414" alt="image" src="https://github.com/user-attachments/assets/80828ebf-00d4-49bc-96d9-16d94ef22158" />
-
-Example below: Double backups!
-
-<img width="390" height="456" alt="image" src="https://github.com/user-attachments/assets/fecc7423-b68a-484b-ae93-14ecac9ef49c" />
 
 ### LEVELING
 Description: Performs a bed mesh leveling in the print area at start.
