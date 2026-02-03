@@ -59,7 +59,7 @@ Notes: Use the "print time" and "total filament used" to compare between options
 
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and there is a pause.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause.
 
 Example below: If filament one runs out then filament two will automatically load and continue.
 
