@@ -22,14 +22,20 @@ def main():
         'tr': 'tr', 'zh': 'zh-CN'
     }
 
-    # 1. SMART PATH DETECTION
-    cfg_files = list(Path('./').glob('*.cfg'))
+    # 1. SMART PATH DETECTION: Look for *_src.cfg files
     base_path = Path('./')
+    cfg_files = list(base_path.glob('*_src.cfg'))
+    
     if not cfg_files:
-        cfg_files = list(Path('../').glob('*.cfg'))
+        print(f"⚠️ No *_src.cfg found in ./ - Checking parent directory...")
         base_path = Path('../')
+        cfg_files = list(base_path.glob('*_src.cfg'))
 
-    print(f"📂 Scanning files in {base_path.absolute()}")
+    if not cfg_files:
+        print("❌ No source files found! Ensure your files are named like 'name_src.cfg'")
+        return
+
+    print(f"📂 Scanning {len(cfg_files)} source files in {base_path.absolute()}")
 
     required_tags = set()
     for cfg in cfg_files:
@@ -39,7 +45,7 @@ def main():
                 required_tags.add(t.strip())
 
     if not required_tags:
-        print("❌ No tags found!")
+        print("❌ No tags found inside the source files!")
         return
 
     # 2. LOAD/CREATE MASTER TABLE
@@ -52,7 +58,6 @@ def main():
             reader = csv.reader(f, delimiter=';')
             try:
                 header = next(reader)
-                # Ensure header contains 'en' and matches our map
                 for row in reader:
                     if row:
                         csv_keys.add(row[0].strip())
@@ -90,10 +95,9 @@ def main():
             writer.writerows(rows)
         print(f"💾 {master_file} updated.")
 
-    # 4. EXPORT TO FOLDERS (Including English)
-    print("📂 Exporting folders...")
+    # 4. EXPORT TO FOLDERS AND BASE PATH
+    print("📂 Exporting localized files...")
     
-    # Build the full dictionary of translations
     final_translations = {h: {} for h in header[1:]}
     for row in rows:
         en_text = row[0]
@@ -101,7 +105,6 @@ def main():
             if i+1 < len(row):
                 final_translations[h][en_text] = row[i+1]
 
-    # Add 'en' to the output list - it just maps key to itself
     all_output_langs = list(lang_map.keys()) + ['en']
 
     for lang_code in all_output_langs:
@@ -111,21 +114,30 @@ def main():
         mapping = final_translations.get(lang_code, {})
 
         for cfg_file in cfg_files:
+            # Determine target filename (strip '_src' from the name)
+            # Example: lessWaste_src.cfg -> lessWaste.cfg
+            clean_name = cfg_file.name.replace('_src.cfg', '.cfg')
+            
             with open(cfg_file, 'r', encoding='utf-8') as f_in:
                 content = f_in.read()
             
-            # For 'en', we just remove the === markers but keep the text inside
             if lang_code == 'en':
+                # Strip markers
                 new_content = pattern.sub(lambda m: m.group(1).strip(), content)
+                # Save the "clean" English version to the base path
+                with open(base_path / clean_name, 'w', encoding='utf-8') as f_base:
+                    f_base.write(new_content)
             else:
+                # Replace with translation
                 new_content = pattern.sub(lambda m: mapping.get(m.group(1).strip(), f"==={m.group(1).strip()}==="), content)
             
-            with open(output_dir / cfg_file.name, 'w', encoding='utf-8') as f_out:
+            # Save to language subfolder
+            with open(output_dir / clean_name, 'w', encoding='utf-8') as f_out:
                 f_out.write(new_content)
         
         print(f"   ✅ [{lang_code}] generated.")
     
-    print("\n✨ All tasks complete! Check your folders.")
+    print("\n✨ Done! Source files preserved, clean files generated.")
 
 if __name__ == "__main__":
     main()
