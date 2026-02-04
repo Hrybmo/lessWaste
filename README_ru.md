@@ -22,10 +22,11 @@
 *Теоретически должно работать и с Bambu Studio при использовании G‑code от bambufy [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10), но это не тестировалось.
 ## Установка
 - При необходимости выполните даунгрейд прошивки AD5X до версии 1.1.7 (убирает принудительную стартовую рутину).
-- Установите zmod, следуя инструкции [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod).
-- Замените штатный дисплей на Guppyscreen, выполнив команду DISPLAY_OFF.
-- (Опционально) Переключите веб‑интерфейс на Mainsail, выполнив команду WEB.
-- Выполните команду ENABLE_PLUGIN name=lessWaste в консоли (плагин recommend должен быть включён заранее).
+- Установите zmod, следуя инструкции [instructions](https://github.com/ghzserg/zmod/wiki/Setup).
+- Замените штатный дисплей на Guppyscreen, выполнив команду `DISPLAY_OFF`.
+- (Опционально) Переключите веб‑интерфейс на Mainsail, выполнив команду `WEB`.
+- Выполните команду `ENABLE_EXTRA_PLUGINS` чтобы включить репозиторий внешних плагинов
+- Выполните команду `ENABLE_PLUGIN name=lessWaste` в консоли (плагин recommend должен быть включён заранее).
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
 
 ## Удаление
@@ -101,5 +102,5 @@
 </div>
 
 ## Благодарности
-- Raúl (function3d) — bambufy
-- Sergei (ghzserg) — zmod
+- Raúl (function3d) [bambufy](https://github.com/function3d/bambufy)
+- Sergei (ghzserg) [zmod](https://github.com/ghzserg/zmod)
