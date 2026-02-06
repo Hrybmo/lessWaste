@@ -33,7 +33,7 @@ Test conditions:
 - (Optional) Go back to Fluidd `WEB`
 
 ## Creating less waste
-You have two options and depending on the type of print, one may be better than the other.
+You have two main options and depending on the type of print, one may be better than the other.
 
 ### Option 1: Purge in prime tower
 Description: Instead of purging out the back, a prime tower is used for purging.
@@ -56,6 +56,16 @@ Cons: The settings "Flush into object's infill" and "Flush into objects' support
 Best used for: Where it is more efficient to build a small prime tower instead of a large one on every layer.
 
 Notes: Use the "print time" and "total filament used" to compare between options.
+
+### Bonus:
+
+If starting a new print with the same filament as last (same in hotend), you can disable the start purge with the following command:
+
+_IFS_VARS same_filament_purge=0
+
+and enable with:
+
+_IFS_VARS same_filament_purge=1
 
 ## Settings
 ### Backup
