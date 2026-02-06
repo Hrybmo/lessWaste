@@ -1,2 +1,3 @@
+cd translate
 python3 translate.py
-pause
+exit

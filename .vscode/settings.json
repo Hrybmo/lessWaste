@@ -2,9 +2,9 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        // Run whenever any file is saved
-        "match": ".*",
-        "cmd": "${workspaceFolder}/translate/run.bat",
+        // Run whenever any file is saved 
+        "match": "src.cfg",
+        "cmd": "start \"\" \"${workspaceFolder}/translate/run.bat\"",
       },
     ],
   },
