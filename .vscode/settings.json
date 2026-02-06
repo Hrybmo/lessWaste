@@ -4,7 +4,7 @@
       {
         // Run whenever any file is saved
         "match": ".*",
-        "cmd": "echo '${fileBasename}' saved.",
+        "cmd": "${workspaceFolder}/translate/run.bat",
       },
     ],
   },
