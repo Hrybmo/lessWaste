@@ -25,7 +25,7 @@ Test conditions:
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
 - Run `ENABLE_EXTRA_PLUGINS` command to enable the external plugin repository
-- Run `ENABLE_PLUGIN name=lessWaste` command from the console (recommend should be enabled already)
+- Run `ENABLE_PLUGIN name=lesswaste` command from the console (recommend should be enabled already)
 - Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
 
 ## How to uninstall
