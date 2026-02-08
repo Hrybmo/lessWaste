@@ -115,7 +115,7 @@ def main():
 
         for cfg_file in cfg_files:
             # Determine target filename (strip '_src' from the name)
-            # Example: lessWaste_src.cfg -> lessWaste.cfg
+            # Example: lesswaste_src.cfg -> lesswaste.cfg
             clean_name = cfg_file.name.replace('_src.cfg', '.cfg')
             
             with open(cfg_file, 'r', encoding='utf-8') as f_in:
