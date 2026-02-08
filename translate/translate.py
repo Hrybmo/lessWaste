@@ -121,13 +121,13 @@ def main():
             with open(cfg_file, 'r', encoding='utf-8') as f_in:
                 content = f_in.read()
             
-            #if lang_code == 'en':
+            if lang_code == 'en':
                 # Strip markers
-                #new_content = pattern.sub(lambda m: m.group(1).strip(), content)
+                new_content = pattern.sub(lambda m: m.group(1).strip(), content)
                 # Save the "clean" English version to the base path
-                #with open(base_path / clean_name, 'w', encoding='utf-8') as f_base:
-                #    f_base.write(new_content)
-            #else:
+                with open(base_path / clean_name, 'w', encoding='utf-8') as f_base:
+                    f_base.write(new_content)
+            else:
                 # Replace with translation
                 new_content = pattern.sub(lambda m: mapping.get(m.group(1).strip(), f"==={m.group(1).strip()}==="), content)
             
