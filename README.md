@@ -91,7 +91,9 @@ Description: With this disabled, the filament stays in the hotend from print to 
 Description: Provide on screen information when issues occur.
 
 ## Flush volumes starting point (OrcaSlicer)
-Set multiplier to 1, recalculate, then set any value lower than 90 to 90. 90 seems to be a safe value for nozzle pressure.
+In Orca->Printer Settings->Printable space, set the nozzle volume to 18 mm^3
+
+Set Flush Volumes->multiplier to 1
 
 <img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
 
