@@ -103,7 +103,7 @@ _IFS_VARS same_filament_purge=1
 
 Установите объём промывки на 1
 
-<img width="352" height="349" alt="volumes2" src="https://github.com/user-attachments/assets/f69af43d-5870-4b64-8b0a-5f2ac25c99b2" />
+<img width="405" height="410" alt="image" src="https://github.com/user-attachments/assets/62463773-d4eb-4f8e-a3c6-c023c58ac86c" />
 
 ---
 <div align="center">
