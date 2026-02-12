@@ -231,7 +231,7 @@ def process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata):
     #md5_line = "; MD5:" + md5.hexdigest() + "\n"
 
     with open(temp_path, "wb") as out, open(file_path, "rb") as f:
-        out.write(md5_line.encode("utf-8"))
+        #out.write(md5_line.encode("utf-8"))
         out.write(header_line.encode("utf-8"))
 
         while True:
