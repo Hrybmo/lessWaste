@@ -3,7 +3,7 @@
 
 ## Features:
 
-### Backups, IFS position change, Purge location, Recovery, and decent start interface. 
+### Backups, Channel swap, Purge location, Recovery, and decent start interface. 
 ### For unlocking IFS on boot:
 
 _IFS_VARS ifs_unlock_after_boot=1
@@ -97,6 +97,9 @@ Description: With this disabled, the filament stays in the hotend from print to 
 
 ### Dialog
 Description: Provide on screen information when issues occur.
+
+### Channel swap
+Description: press the tool in the dialog to swap with another location.
 
 ## Flush volumes starting point (OrcaSlicer)
 In Orca->Printer Settings->Printable space, set the nozzle volume to 18 mm^3
