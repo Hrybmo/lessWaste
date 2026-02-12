@@ -37,7 +37,7 @@ _IFS_VARS same_filament_purge=1
 - Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
 
 ## How to uninstall
-- Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
+- Run the `DISABLE_PLUGIN name=lesswaste` command from the console.
 - (Optional) Go back to stock screen `DISPLAY_ON`
 - (Optional) Go back to Fluidd `WEB`
 

@@ -39,7 +39,7 @@ _IFS_VARS same_filament_purge=1
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
 
 ## Удаление
-- Выполните команду DISABLE_PLUGIN name=lessWaste.
+- Выполните команду DISABLE_PLUGIN name=lesswaste.
 - (Опционально) Верните штатный экран: DISPLAY_ON.
 - (Опционально) Верните Fluidd: WEB.
 
