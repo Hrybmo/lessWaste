@@ -216,19 +216,19 @@ def get_exclude_object_define_streaming(first_layer_text):
 def process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata):
     temp_path = file_path + ".tmp"
 
-    md5 = hashlib.md5()
+    #md5 = hashlib.md5()
     header_line = "; " + ifs_colors + "\n"
-    md5.update(header_line.encode("utf-8"))
+    #md5.update(header_line.encode("utf-8"))
 
-    with open(file_path, "rb") as f:
-        while True:
-            chunk = f.read(CHUNK_SIZE)
-            if not chunk:
-                break
-            md5.update(chunk)
+    #with open(file_path, "rb") as f:
+    #    while True:
+    #        chunk = f.read(CHUNK_SIZE)
+    #        if not chunk:
+    #            break
+    #        md5.update(chunk)
 
-    md5.update(bambu_metadata.encode("utf-8"))
-    md5_line = "; MD5:" + md5.hexdigest() + "\n"
+    #md5.update(bambu_metadata.encode("utf-8"))
+    #md5_line = "; MD5:" + md5.hexdigest() + "\n"
 
     with open(temp_path, "wb") as out, open(file_path, "rb") as f:
         out.write(md5_line.encode("utf-8"))
@@ -295,7 +295,7 @@ def main():
         sys.exit(0)
 
     #print(ifs_colors + "\n")
-    print("Generating G-code MD5...")
+    print("Writing G-code...")
     start = time.time()
     process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata)
     end = time.time()
