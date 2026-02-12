@@ -1,15 +1,24 @@
 # Плагин lessWaste для AD5X с ZMOD и OrcaSlicer
 ## Основан на [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-Изменения по сравнению с bambufy:
+## Функции:
 
-- Рутинная процедура старта печати
-- Стартовый диалог
-- Различные мелкие улучшения
-- Обработка больших G‑code файлов
-- Рутинная процедура завершения печати
+### Резервные копии, изменение позиции IFS, место очистки, восстановление и удобный стартовый интерфейс.
 
-Условия тестирования:
+### Для разблокировки IFS при загрузке:
+
+_IFS_VARS ifs_unlock_after_boot=1
+
+_IFS_VARS ifs_unlock_after_boot=0
+
+### Для отключения очистки тем же филаментом при старте:
+
+_IFS_VARS same_filament_purge=0
+
+_IFS_VARS same_filament_purge=1
+
+
+### Условия тестирования:
 - OrcaSlicer
 - Включённые плагины: recommend, lessWaste, notify, timelapse
 - Klipper 13

@@ -1,16 +1,22 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-Options:
-For unlocking in case of unexpected IFS action at start:
+## Features:
+
+### Backups, IFS position change, Purge location, Recovery, and decent start interface. 
+### For unlocking IFS on boot:
+
 _IFS_VARS ifs_unlock_after_boot=1
+
 _IFS_VARS ifs_unlock_after_boot=0
 
-For disabling same purge at the start:
+### For disabling same purge at the start:
+
 _IFS_VARS same_filament_purge=0
+
 _IFS_VARS same_filament_purge=1
 
-Test conditions:
+### Test conditions:
 - OrcaSlicer
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
