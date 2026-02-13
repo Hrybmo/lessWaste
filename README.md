@@ -1,9 +1,8 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-## Features:
-
-### Backups, Channel swap, Purge location, Recovery, and decent start interface. 
+### Features: Backups, Channel swap, Purge location, Recovery, and start interface. 
+ 
 ### For unlocking IFS on boot:
 
 _IFS_VARS ifs_unlock_after_boot=1
