@@ -1,20 +1,28 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-Changes relative to bambufy:
-- Start print routine
-- Start dialog
-- tweaks here and there
-- Large G-code parsing
-- End print routine
+### Features: Backups, Channel swap, Purge location, Recovery, and start interface. 
+ 
+### For unlocking IFS on boot:
 
-Test conditions:
+_IFS_VARS ifs_unlock_after_boot=1
+
+_IFS_VARS ifs_unlock_after_boot=0
+
+### For disabling same purge at the start:
+
+_IFS_VARS same_filament_purge=0
+
+_IFS_VARS same_filament_purge=1
+
+### Test conditions:
 - OrcaSlicer
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
 - USB camera
 - zmod 1.6.6
 - recommend 1.1.5
+- zmod md5 post proccessing
 - [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R) firmware
 (Best version IMO)
 
@@ -29,7 +37,7 @@ Test conditions:
 - Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
 
 ## How to uninstall
-- Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
+- Run the `DISABLE_PLUGIN name=lesswaste` command from the console.
 - (Optional) Go back to stock screen `DISPLAY_ON`
 - (Optional) Go back to Fluidd `WEB`
 
@@ -89,6 +97,9 @@ Description: With this disabled, the filament stays in the hotend from print to 
 
 ### Dialog
 Description: Provide on screen information when issues occur.
+
+### Channel swap
+Description: press the tool in the dialog to swap with another location.
 
 ## Flush volumes starting point (OrcaSlicer)
 In Orca->Printer Settings->Printable space, set the nozzle volume to 18 mm^3

@@ -1,21 +1,29 @@
 # Плагин lessWaste для AD5X с ZMOD и OrcaSlicer
 ## Основан на [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-Изменения по сравнению с bambufy:
+### Функции: Резервные копии, смена каналов, место очистки, восстановление и стартовый интерфейс.
 
-- Рутинная процедура старта печати
-- Стартовый диалог
-- Различные мелкие улучшения
-- Обработка больших G‑code файлов
-- Рутинная процедура завершения печати
+### Для разблокировки IFS при загрузке:
 
-Условия тестирования:
+_IFS_VARS ifs_unlock_after_boot=1
+
+_IFS_VARS ifs_unlock_after_boot=0
+
+### Для отключения очистки тем же филаментом при старте:
+
+_IFS_VARS same_filament_purge=0
+
+_IFS_VARS same_filament_purge=1
+
+
+### Условия тестирования:
 - OrcaSlicer
 - Включённые плагины: recommend, lessWaste, notify, timelapse
 - Klipper 13
 - USB‑камера
 - zmod 1.6.6
 - recommend 1.1.5
+- zmod md5 пост‑обработка
 - [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R)
 (На мой взгляд, лучшая версия)
 
@@ -30,7 +38,7 @@
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
 
 ## Удаление
-- Выполните команду DISABLE_PLUGIN name=lessWaste.
+- Выполните команду DISABLE_PLUGIN name=lesswaste.
 - (Опционально) Верните штатный экран: DISPLAY_ON.
 - (Опционально) Верните Fluidd: WEB.
 
@@ -97,6 +105,10 @@ _IFS_VARS same_filament_purge=1
 
 ### Dialog
 Описание: выводит информацию на экран при возникновении проблем.
+
+### Смена каналов
+Описание: нажмите на инструмент в диалоге, чтобы поменять его местами с другим расположением.
+
 
 ### Начальные значения flushing volumes (OrcaSlicer)
 установите объём сопла на 18 мм³.

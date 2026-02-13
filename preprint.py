@@ -29,6 +29,7 @@ def stream_detect_slicer_and_metadata(path):
     in_first_layer = False
     after_layer_count = 0
     tools = set()
+    md5 = ""
 
     metadata_keys = [
         "; nozzle_temperature =",
@@ -68,6 +69,9 @@ def stream_detect_slicer_and_metadata(path):
                 filament_colour_line = line
             if line.startswith("; filament_type ="):
                 filament_type_line = line
+            # Capture md5
+            if line.startswith("; MD5"):
+                md5 = line
 
             # Capture feedrates
             if line.startswith("; filament_max_volumetric_speed ="):
@@ -161,7 +165,8 @@ def stream_detect_slicer_and_metadata(path):
         version,
         "".join(first_layer_lines),
         bambu_metadata,
-        sorted(tools)
+        sorted(tools),
+        md5
     )
 
 def get_exclude_object_define_streaming(first_layer_text):
@@ -213,25 +218,25 @@ def get_exclude_object_define_streaming(first_layer_text):
 # STREAMING MD5 REWRITE
 # ------------------------------------------------------------
 
-def process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata):
+def process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata, md5):
     temp_path = file_path + ".tmp"
 
-    md5 = hashlib.md5()
+    #md5 = hashlib.md5()
     header_line = "; " + ifs_colors + "\n"
-    md5.update(header_line.encode("utf-8"))
+    #md5.update(header_line.encode("utf-8"))
 
-    with open(file_path, "rb") as f:
-        while True:
-            chunk = f.read(CHUNK_SIZE)
-            if not chunk:
-                break
-            md5.update(chunk)
+    #with open(file_path, "rb") as f:
+    #    while True:
+    #        chunk = f.read(CHUNK_SIZE)
+    #        if not chunk:
+    #            break
+    #        md5.update(chunk)
 
-    md5.update(bambu_metadata.encode("utf-8"))
-    md5_line = "; MD5:" + md5.hexdigest() + "\n"
+    #md5.update(bambu_metadata.encode("utf-8"))
+    #md5_line = "; MD5:" + md5.hexdigest() + "\n"
 
     with open(temp_path, "wb") as out, open(file_path, "rb") as f:
-        out.write(md5_line.encode("utf-8"))
+        out.write(md5.encode("utf-8"))
         out.write(header_line.encode("utf-8"))
 
         while True:
@@ -270,7 +275,8 @@ def main():
         version,
         first_layer,
         bambu_metadata,
-        tools
+        tools,
+        md5
     ) = stream_detect_slicer_and_metadata(file_path)
     end = time.time()
     print("Complete - " + f" took {end - start:.4f} seconds")
@@ -295,9 +301,9 @@ def main():
         sys.exit(0)
 
     #print(ifs_colors + "\n")
-    print("Generating G-code MD5...")
+    print("Writing G-code...")
     start = time.time()
-    process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata)
+    process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata, md5)
     end = time.time()
     print("Complete - " + f" took {end - start:.4f} seconds")
     if not any(k.startswith("SLIC3R_") for k in os.environ):
