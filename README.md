@@ -23,6 +23,7 @@ _IFS_VARS same_filament_purge=1
 - USB camera
 - zmod 1.6.6
 - recommend 1.1.5
+- zmod md5 post proccessing
 - [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R) firmware
 (Best version IMO)
 
