@@ -34,7 +34,7 @@ _IFS_VARS same_filament_purge=1
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
 - Run `ENABLE_EXTRA_PLUGINS` command to enable the external plugin repository
 - Run `ENABLE_PLUGIN name=lesswaste` command from the console (recommend should be enabled already)
-- Use OrcaSlicer_GCODE.md for OrcaSlicer configuration.
+- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) for OrcaSlicer configuration.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lesswaste` command from the console.
@@ -102,11 +102,26 @@ Description: Provide on screen information when issues occur.
 Description: press the tool in the dialog to swap with another location.
 
 ## Flush volumes starting point (OrcaSlicer)
-In Orca->Printer Settings->Printable space, set the nozzle volume to 18 mm^3
+### Locations:
+- Nozzle volume: Orca->Printer Settings->Printable space
+- Multiplier: Set Flush Volumes->multiplier
 
-Set Flush Volumes->multiplier to 1
+### Goal:
+Set Black -> White color transition ~ 90 mm^3, White -> Black mm^3 user adjust. 
 
-<img width="405" height="410" alt="image" src="https://github.com/user-attachments/assets/62463773-d4eb-4f8e-a3c6-c023c58ac86c" />
+NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) as of V1.2.31
+
+### Max savings:
+- Nozzle volume = 150 mm^3
+- Multiplier = .4
+
+<img width="407" height="412" alt="image" src="https://github.com/user-attachments/assets/6823563f-c27c-432e-8ecc-e2b2387a88a5" />
+
+### Less bleed through:
+- Nozzle volume = 14 mm^3
+- Multiplier = 1
+
+<img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ---
 <div align="center">
