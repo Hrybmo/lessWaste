@@ -111,11 +111,25 @@ _IFS_VARS same_filament_purge=1
 
 
 ### Начальные значения flushing volumes (OrcaSlicer)
-установите объём сопла на 18 мм³.
+- Объём сопла: Orca->Printer Settings->Printable space
+- Множитель: Set Flush Volumes->multiplier
 
-Установите объём промывки на 1
+### Цель:
+Установить переход Цвет Чёрный -> Белый ~ 90 мм³, Белый -> Чёрный мм³ — пользователь регулирует.
 
-<img width="405" height="410" alt="image" src="https://github.com/user-attachments/assets/62463773-d4eb-4f8e-a3c6-c023c58ac86c" />
+ПРИМЕЧАНИЕ: Обновлённый [g-code смены цвета](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) начиная с версии V1.2.31
+
+### Максимальная экономия:
+- Объём сопла = 150 мм³
+- Множитель = .4
+
+<img width="407" height="412" alt="image" src="https://github.com/user-attachments/assets/6823563f-c27c-432e-8ecc-e2b2387a88a5" />
+
+### Меньше просвечивания:
+- Объём сопла = 14 мм³
+- Множитель = 1
+
+<img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ---
 <div align="center">

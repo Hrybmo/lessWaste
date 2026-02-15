@@ -46,7 +46,7 @@ The Bambufy change filament version works also.
 Change filament G-code:
 ```
 ; Machine: AD5X
-; less_waste: v1.2.3
+; less_waste: v1.2.4
 {if old_filament_temp < new_filament_temp}
 M104 S[new_filament_temp]
 {endif}
