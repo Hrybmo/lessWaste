@@ -56,7 +56,7 @@ Notes: Placing the prime tower close to the cutter area works well when using "N
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
 
-Pros: A small or no prime tower is needed, less area on the build plate. Respects "flushing volumes" when purging.
+Pros: A small or no prime tower is needed. Respects "flushing volumes" when purging.
 
 Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
 
