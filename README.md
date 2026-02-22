@@ -2,7 +2,6 @@
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
 ### Features: Backups, Channel swap, Virtual channels, Purge control, Recovery, and start UI.
-* Backup is not available in Virtual channel mode.
  
 ### For unlocking IFS on boot:
 
@@ -79,7 +78,7 @@ It is recommended to have some type of small priming on the build plate when dis
 
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause. Backup is not available in Virtual channel mode.
 
 Example below: If filament one runs out then filament two will automatically load and continue.
 
@@ -124,6 +123,12 @@ NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/mas
 
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
+### Troubleshooting:
+If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
+```
+zmod_ifs_motion_sensor ifs_motion_sensor
+detection_length: 15
+```
 ---
 <div align="center">
 
