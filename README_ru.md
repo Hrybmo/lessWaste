@@ -134,7 +134,7 @@ _IFS_VARS same_filament_purge=1
 ### Устранение неполадок:  
 Если во время смены филамента появляются ложные ошибки о заклинивании, следуйте инструкции Zmod FAQ для сообщения «Filament jam detected (IFS)» и добавьте дополнительную длину детекции в файл user.cfg. Значение ниже приведено как пример и может потребовать корректировки.
 ```
-zmod_ifs_motion_sensor ifs_motion_sensor
+[zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
 ---

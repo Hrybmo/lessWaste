@@ -126,7 +126,7 @@ NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/mas
 ### Troubleshooting:
 If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
 ```
-zmod_ifs_motion_sensor ifs_motion_sensor
+[zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
 ---
