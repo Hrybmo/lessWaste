@@ -1,7 +1,7 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-### Features: Backups, Channel swap, Purge location, Recovery, and start interface. 
+### Features: Backups, Channel swap, Virtual channels, Purge control, Recovery, and start UI.
  
 ### For unlocking IFS on boot:
 
@@ -9,26 +9,24 @@ _IFS_VARS ifs_unlock_after_boot=1
 
 _IFS_VARS ifs_unlock_after_boot=0
 
-### For disabling same purge at the start:
+### For disabling same filament purge out the back on start:
 
 _IFS_VARS same_filament_purge=0
 
 _IFS_VARS same_filament_purge=1
 
 ### Test conditions:
-- OrcaSlicer
+- OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
 - USB camera
-- zmod 1.6.6
-- recommend 1.1.5
+- zmod v0.0.0-106
+- recommend 1.1.6
 - zmod md5 post proccessing
-- [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R) firmware
-(Best version IMO)
+- AD5X 3.0.3
 
 *In theory this should work with Bambu studio using [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) G-code but is not tested.
 ## How to install
-- Downgrade to 1.1.7 Firmware if needed on AD5X (removes forced start routine) 
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)   
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
@@ -58,7 +56,7 @@ Notes: Placing the prime tower close to the cutter area works well when using "N
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
 
-Pros: A small prime tower is required, less area needed on the build plate. Respects "flushing volumes" when purging.
+Pros: A small or no prime tower is needed. Respects "flushing volumes" when purging.
 
 Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
 
@@ -68,7 +66,7 @@ Notes: Use the "print time" and "total filament used" to compare between options
 
 ### Bonus:
 
-If starting a new print with the same filament as last (same in hotend), you can disable the start purge with the following command:
+If starting a new print with the same filament as last (same in hotend), you can disable the start purge out the back with the following command:
 
 _IFS_VARS same_filament_purge=0
 
@@ -76,9 +74,11 @@ and enable with:
 
 _IFS_VARS same_filament_purge=1
 
+It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
+
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause. Backup is not available in Virtual channel mode.
 
 Example below: If filament one runs out then filament two will automatically load and continue.
 
@@ -123,6 +123,12 @@ NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/mas
 
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
+### Troubleshooting:
+If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
+```
+[zmod_ifs_motion_sensor ifs_motion_sensor]
+detection_length: 15
+```
 ---
 <div align="center">
 
