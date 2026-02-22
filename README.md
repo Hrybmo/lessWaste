@@ -1,7 +1,8 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
-### Features: Backups, Channel swap, Purge location, Recovery, and start interface. 
+### Features: Backups, Channel swap, Virtual channels, Purge control, Recovery, and start UI.
+* Backup is not available in Virtual channel mode.
  
 ### For unlocking IFS on boot:
 
@@ -9,26 +10,24 @@ _IFS_VARS ifs_unlock_after_boot=1
 
 _IFS_VARS ifs_unlock_after_boot=0
 
-### For disabling same purge at the start:
+### For disabling same filament purge out the back on start:
 
 _IFS_VARS same_filament_purge=0
 
 _IFS_VARS same_filament_purge=1
 
 ### Test conditions:
-- OrcaSlicer
+- OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 13
 - USB camera
-- zmod 1.6.6
-- recommend 1.1.5
+- zmod v0.0.0-106
+- recommend 1.1.6
 - zmod md5 post proccessing
-- [AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory](https://github.com/ghzserg/FF/releases/R) firmware
-(Best version IMO)
+- AD5X 3.0.3
 
 *In theory this should work with Bambu studio using [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) G-code but is not tested.
 ## How to install
-- Downgrade to 1.1.7 Firmware if needed on AD5X (removes forced start routine) 
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)   
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
@@ -68,13 +67,15 @@ Notes: Use the "print time" and "total filament used" to compare between options
 
 ### Bonus:
 
-If starting a new print with the same filament as last (same in hotend), you can disable the start purge with the following command:
+If starting a new print with the same filament as last (same in hotend), you can disable the start purge out the back with the following command:
 
 _IFS_VARS same_filament_purge=0
 
 and enable with:
 
 _IFS_VARS same_filament_purge=1
+
+It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
 
 ## Settings
 ### Backup
