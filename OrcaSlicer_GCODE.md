@@ -46,13 +46,11 @@ The Bambufy change filament version works also.
 Change filament G-code:
 ```
 ; Machine: AD5X
-; less_waste: v1.2.4
+; less_waste: v1.2.5
 {if old_filament_temp < new_filament_temp}
 M104 S[new_filament_temp]
 {endif}
-
 M204 S7000
-
 {if purge_in_prime_tower || flush_length == 0}
 {if toolchange_count > 1}
 _NOPOOP
@@ -95,9 +93,7 @@ G1 E-[new_retract_length_toolchange] F1800
 _SBROS_TRASH
 {endif}
 {endif}
-{if toolchange_count > 1}
-G1 Y220 ;Exit trash
-{endif}
+
 {if layer_z <= (initial_layer_print_height + 0.001)}
 M204 S[initial_layer_acceleration]
 {else}
