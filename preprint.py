@@ -301,15 +301,14 @@ def main():
         sys.exit(0)
 
     #print(ifs_colors + "\n")
-    print("Writing G-code...")
-    start = time.time()
-    process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata, md5)
-    end = time.time()
-    print("Complete - " + f" took {end - start:.4f} seconds")
+    #print("Writing G-code...")
+    #start = time.time()
+    #process_gcode_streaming_atomic(file_path, ifs_colors, bambu_metadata, md5)
+    #end = time.time()
+    #print("Complete - " + f" took {end - start:.4f} seconds")
     if not any(k.startswith("SLIC3R_") for k in os.environ):
         with open(PRINTER_PATH, "a", encoding="utf-8") as f:
             f.write(ifs_colors + "\n")
-
 
 if __name__ == "__main__":
     main()
