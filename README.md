@@ -51,7 +51,7 @@ Cons: A large prime tower is generally required, taking up volume.
 
 Best used for: Flushing into things. 
 
-Notes: Placing the prime tower close to the cutter area works well when using "No sparse layers (beta)". Use the "print time" and "total filament used" to compare between options.
+Notes: Place the prime tower close to the cutter area when using "No sparse layers (beta)".
 
 ### Option 2: Purge out the back
 Description: Purge out the back like stock but with more control.
@@ -60,9 +60,7 @@ Pros: A small or no prime tower is needed. Respects "flushing volumes" when purg
 
 Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
 
-Best used for: Where it is more efficient to build a small prime tower instead of a large one on every layer.
-
-Notes: Use the "print time" and "total filament used" to compare between options.
+Best used for: Where it is more efficient to build a small or no prime tower instead of a large one on every layer.
 
 ### Bonus:
 
@@ -109,9 +107,11 @@ Description: press the tool in the dialog to swap with another location.
 ### Goal:
 Set Black -> White color transition ~ 90 mm^3, White -> Black mm^3 user adjust. 
 
+Assumes with a small prime tower, if no prime tower then may need to increase both color transition amounts.
+
 NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) as of V1.2.31
 
-### Max savings:
+### Standard setting:
 - Nozzle volume = 150 mm^3
 - Multiplier = .4
 
