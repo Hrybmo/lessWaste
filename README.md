@@ -107,9 +107,11 @@ Description: press the tool in the dialog to swap with another location.
 ### Goal:
 Set Black -> White color transition ~ 90 mm^3, White -> Black mm^3 user adjust. 
 
+Assumes with a small prime tower, if no prime tower then may need to increase both color transition amounts.
+
 NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) as of V1.2.31
 
-### Max savings:
+### Standard setting:
 - Nozzle volume = 150 mm^3
 - Multiplier = .4
 
