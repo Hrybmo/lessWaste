@@ -32,7 +32,7 @@ _IFS_VARS same_filament_purge=1
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
 - Run `ENABLE_EXTRA_PLUGINS` command to enable the external plugin repository
 - Run `ENABLE_PLUGIN name=lesswaste` command from the console (recommend should be enabled already)
-- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) for OrcaSlicer configuration.
+- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) or [OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf) for slicer configuration.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lesswaste` command from the console.

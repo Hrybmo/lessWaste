@@ -34,6 +34,8 @@ _IFS_VARS same_filament_purge=1
 - Выполните команду `ENABLE_EXTRA_PLUGINS` чтобы включить репозиторий внешних плагинов
 - Выполните команду `ENABLE_PLUGIN name=lesswaste` в консоли (плагин recommend должен быть включён заранее).
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
+[OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) /
+[OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf)
 
 ## Удаление
 - Выполните команду DISABLE_PLUGIN name=lesswaste.
