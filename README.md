@@ -132,8 +132,7 @@ detection_length: 15
 ---
 <div align="center">
 
-## [❤️ Consider supporting this development ❤️](https://github.com/sponsors/Hrybmo)
-
+## [Github](https://github.com/sponsors/Hrybmo) or [Paypal](paypal.me/JJH4) donation
 </div>
 
 ## Credits
