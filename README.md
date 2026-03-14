@@ -18,7 +18,7 @@ _IFS_VARS same_filament_purge=1
 ### Test conditions:
 - OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
-- Klipper 13
+- Klipper 12
 - USB camera
 - zmod v0.0.0-106
 - recommend 1.1.6
@@ -32,7 +32,7 @@ _IFS_VARS same_filament_purge=1
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
 - Run `ENABLE_EXTRA_PLUGINS` command to enable the external plugin repository
 - Run `ENABLE_PLUGIN name=lesswaste` command from the console (recommend should be enabled already)
-- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) or [OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf) for slicer configuration.
+- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) or [OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V2.3mf) for slicer configuration.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lesswaste` command from the console.
@@ -124,11 +124,13 @@ NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/mas
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ### Troubleshooting:
-If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
+- If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
 ```
 [zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
+- Use Klipper 12 (UPDATE_MCU FORCE=12) if running into "timer too close" issues.
+
 ---
 <div align="center">
 

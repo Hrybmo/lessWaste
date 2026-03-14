@@ -19,7 +19,7 @@ _IFS_VARS same_filament_purge=1
 ### Условия тестирования:
 - OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
-- Klipper 13
+- Klipper 12
 - USB camera
 - zmod v0.0.0-106
 - recommend 1.1.6
@@ -35,7 +35,7 @@ _IFS_VARS same_filament_purge=1
 - Выполните команду `ENABLE_PLUGIN name=lesswaste` в консоли (плагин recommend должен быть включён заранее).
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
 [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) /
-[OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf)
+[OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V2.3mf)
 
 ## Удаление
 - Выполните команду DISABLE_PLUGIN name=lesswaste.
@@ -133,11 +133,12 @@ _IFS_VARS same_filament_purge=1
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ### Устранение неполадок:  
-Если во время смены филамента появляются ложные ошибки о заклинивании, следуйте инструкции Zmod FAQ для сообщения «Filament jam detected (IFS)» и добавьте дополнительную длину детекции в файл user.cfg. Значение ниже приведено как пример и может потребовать корректировки.
+- Если во время смены филамента появляются ложные ошибки о заклинивании, следуйте инструкции Zmod FAQ для сообщения «Filament jam detected (IFS)» и добавьте дополнительную длину детекции в файл user.cfg. Значение ниже приведено как пример и может потребовать корректировки.
 ```
 [zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
+- «Используйте Klipper 12 (UPDATE_MCU FORCE=12), если сталкиваетесь с ошибками „timer too close“.
 ---
 <div align="center">
 
