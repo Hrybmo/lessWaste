@@ -142,7 +142,7 @@ detection_length: 15
 ---
 <div align="center">
 
-## [Github](https://github.com/sponsors/Hrybmo) или [Paypal](paypal.me/JJH4) пожертвование
+## [Github](https://github.com/sponsors/Hrybmo)/[Paypal](https://paypal.me/JJH4)
 </div>
 
 ## Благодарности
