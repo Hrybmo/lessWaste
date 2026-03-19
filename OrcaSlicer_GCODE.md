@@ -27,8 +27,8 @@ SET_PRINT_STATS_INFO CURRENT_LAYER={layer_num + 1}
 If you have created your profile without using the 3MF I provided, then take these settings into account in addition to these Machines gcode:
 - Printer settings
   - Multimaterial
-    - Filament load time: 23
-    - Filament unload time: 23
+    - Filament load time: 30
+    - Filament unload time: 30
   - Extruder
     - Retraction when switching material length: 2
     - Extra length on restart: 0

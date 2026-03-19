@@ -9,16 +9,10 @@ _IFS_VARS ifs_unlock_after_boot=1
 
 _IFS_VARS ifs_unlock_after_boot=0
 
-### For disabling same filament purge out the back on start:
-
-_IFS_VARS same_filament_purge=0
-
-_IFS_VARS same_filament_purge=1
-
 ### Test conditions:
 - OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
-- Klipper 13
+- Klipper 12
 - USB camera
 - zmod v0.0.0-106
 - recommend 1.1.6
@@ -32,7 +26,7 @@ _IFS_VARS same_filament_purge=1
 - (Optional) Change web ui to **Mainsail** running the `WEB` command
 - Run `ENABLE_EXTRA_PLUGINS` command to enable the external plugin repository
 - Run `ENABLE_PLUGIN name=lesswaste` command from the console (recommend should be enabled already)
-- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) or [OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf) for slicer configuration.
+- Use [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) or [OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V2.3mf) for slicer configuration.
 
 ## How to uninstall
 - Run the `DISABLE_PLUGIN name=lesswaste` command from the console.
@@ -62,18 +56,6 @@ Cons: The settings "Flush into object's infill" and "Flush into objects' support
 
 Best used for: Where it is more efficient to build a small or no prime tower instead of a large one on every layer.
 
-### Bonus:
-
-If starting a new print with the same filament as last (same in hotend), you can disable the start purge out the back with the following command:
-
-_IFS_VARS same_filament_purge=0
-
-and enable with:
-
-_IFS_VARS same_filament_purge=1
-
-It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
-
 ## Settings
 ### Backup
 Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause. Backup is not available in Virtual channel mode.
@@ -99,6 +81,13 @@ Description: Provide on screen information when issues occur.
 ### Channel swap
 Description: press the tool in the dialog to swap with another location.
 
+### SMART PURGE
+Description: If starting a new print with the same filament as last (same in hotend), you can disable the start purge with this.
+It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
+
+### UNLOCK IFS
+Description: Unlocks IFS if ever needed.
+
 ## Flush volumes starting point (OrcaSlicer)
 ### Locations:
 - Nozzle volume: Orca->Printer Settings->Printable space
@@ -112,28 +101,23 @@ Assumes with a small prime tower, if no prime tower then may need to increase bo
 NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) as of V1.2.31
 
 ### Standard setting:
-- Nozzle volume = 150 mm^3
-- Multiplier = .4
-
-<img width="407" height="412" alt="image" src="https://github.com/user-attachments/assets/6823563f-c27c-432e-8ecc-e2b2387a88a5" />
-
-### Less bleed through:
 - Nozzle volume = 14 mm^3
 - Multiplier = 1
 
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ### Troubleshooting:
-If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
+- If gettings false jam errors during filament changes, follow the Zmod FAQ for "Filament jam detected (IFS)" and add extra detection length in user.cfg, the value below is a reference and might need adjustment.
 ```
 [zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
+- Use Klipper 12 (UPDATE_MCU FORCE=12) if running into "timer too close" issues.
+
 ---
 <div align="center">
 
-## [❤️ Consider supporting this development ❤️](https://github.com/sponsors/Hrybmo)
-
+## [Github](https://github.com/sponsors/Hrybmo)/[Paypal](https://paypal.me/JJH4)
 </div>
 
 ## Credits

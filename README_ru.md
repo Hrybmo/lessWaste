@@ -9,17 +9,10 @@ _IFS_VARS ifs_unlock_after_boot=1
 
 _IFS_VARS ifs_unlock_after_boot=0
 
-### Для отключения очистки тем же филаментом при старте:
-
-_IFS_VARS same_filament_purge=0
-
-_IFS_VARS same_filament_purge=1
-
-
 ### Условия тестирования:
 - OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
-- Klipper 13
+- Klipper 12
 - USB camera
 - zmod v0.0.0-106
 - recommend 1.1.6
@@ -35,7 +28,7 @@ _IFS_VARS same_filament_purge=1
 - Выполните команду `ENABLE_PLUGIN name=lesswaste` в консоли (плагин recommend должен быть включён заранее).
 - Используйте файл OrcaSlicer_GCODE.md для настройки OrcaSlicer.
 [OrcaSlicer_GCODE.md](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) /
-[OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V1.3mf)
+[OrcaSlicer .3mf](https://github.com/Hrybmo/lessWaste/blob/master/lessWaste_ad5x_OrcaSlicer_V2.3mf)
 
 ## Удаление
 - Выполните команду DISABLE_PLUGIN name=lesswaste.
@@ -72,17 +65,6 @@ _IFS_VARS same_filament_purge=1
 
 Лучше всего подходит для: Моделей, где выгоднее строить маленький prime tower, чем большой на каждом слое.
 
-### Бонус:
-Если вы начинаете новую печать тем же пластиком, который использовался в прошлый раз (и который уже находится в хотэнде), вы можете отключить стартовую продувку (пурж) назад с помощью следующей команды:
-
-_IFS_VARS same_filament_purge=0
-
-И снова включить её с помощью:
-
-_IFS_VARS same_filament_purge=1
-
-При отключении этой функции рекомендуется использовать какой-либо тип предварительной подготовки (прайминга) на печатной платформе (юбка/skirt, линия очистки/purge line и т. д.).
-
 ## Настройки
 ### Backup
 Если функция резервного копирования (backup) включена и в системе присутствуют филаменты одного типа и цвета, они объединяются в группу. Резервные ячейки определяются при запуске и расходуются в процессе печати. Если автоматическое переключение (backup) срабатывает во время печати, активируется канал с наименьшим доступным номером (сканирование идет от 1-го к 4-му). В процессе печати пустые каналы можно пополнять, когда резервные варианты исчерпаны или когда печать поставлена на паузу. Резервное копирование недоступно в режиме виртуального канала.
@@ -108,6 +90,12 @@ _IFS_VARS same_filament_purge=1
 ### Смена каналов
 Описание: нажмите на инструмент в диалоге, чтобы поменять его местами с другим расположением.
 
+### SMART PURGE (УМНАЯ ПРОЧИСТКА)
+Описание: Если ты начинаешь новую печать тем же самым филаментом, что и в прошлый раз (тот же материал уже находится в хотэнде), можно отключить стартовую прочистку.
+Рекомендуется всё же иметь небольшой прайминг на столе при отключённой прочистке (юбка, линия прочистки и т. п.).
+
+### UNLOCK IFS (РАЗБЛОКИРОВАТЬ IFS)
+Описание: Разблокирует IFS, если когда‑нибудь потребуется.
 
 ### Начальные значения flushing volumes (OrcaSlicer)
 - Объём сопла: Orca->Printer Settings->Printable space
@@ -121,27 +109,22 @@ _IFS_VARS same_filament_purge=1
 ПРИМЕЧАНИЕ: Обновлённый [g-code смены цвета](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) начиная с версии V1.2.31
 
 ### Стандартная настройка:
-- Объём сопла = 150 мм³
-- Множитель = .4
-
-<img width="407" height="412" alt="image" src="https://github.com/user-attachments/assets/6823563f-c27c-432e-8ecc-e2b2387a88a5" />
-
-### Меньше просвечивания:
 - Объём сопла = 14 мм³
 - Множитель = 1
 
 <img width="409" height="410" alt="image" src="https://github.com/user-attachments/assets/5703983b-23f6-45c5-9ae4-7382a4bdfeb0" />
 
 ### Устранение неполадок:  
-Если во время смены филамента появляются ложные ошибки о заклинивании, следуйте инструкции Zmod FAQ для сообщения «Filament jam detected (IFS)» и добавьте дополнительную длину детекции в файл user.cfg. Значение ниже приведено как пример и может потребовать корректировки.
+- Если во время смены филамента появляются ложные ошибки о заклинивании, следуйте инструкции Zmod FAQ для сообщения «Filament jam detected (IFS)» и добавьте дополнительную длину детекции в файл user.cfg. Значение ниже приведено как пример и может потребовать корректировки.
 ```
 [zmod_ifs_motion_sensor ifs_motion_sensor]
 detection_length: 15
 ```
+- «Используйте Klipper 12 (UPDATE_MCU FORCE=12), если сталкиваетесь с ошибками „timer too close“.
 ---
 <div align="center">
 
-## [❤️ Поддержите разработку ❤️](https://github.com/sponsors/Hrybmo)
+## [Github](https://github.com/sponsors/Hrybmo)/[Paypal](https://paypal.me/JJH4)
 </div>
 
 ## Благодарности
