@@ -9,12 +9,6 @@ _IFS_VARS ifs_unlock_after_boot=1
 
 _IFS_VARS ifs_unlock_after_boot=0
 
-### For disabling same filament purge out the back on start:
-
-_IFS_VARS same_filament_purge=0
-
-_IFS_VARS same_filament_purge=1
-
 ### Test conditions:
 - OrcaSlicer 2.3.1
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
@@ -62,18 +56,6 @@ Cons: The settings "Flush into object's infill" and "Flush into objects' support
 
 Best used for: Where it is more efficient to build a small or no prime tower instead of a large one on every layer.
 
-### Bonus:
-
-If starting a new print with the same filament as last (same in hotend), you can disable the start purge out the back with the following command:
-
-_IFS_VARS same_filament_purge=0
-
-and enable with:
-
-_IFS_VARS same_filament_purge=1
-
-It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
-
 ## Settings
 ### Backup
 Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause. Backup is not available in Virtual channel mode.
@@ -99,6 +81,13 @@ Description: Provide on screen information when issues occur.
 ### Channel swap
 Description: press the tool in the dialog to swap with another location.
 
+### SMART PURGE
+Description: If starting a new print with the same filament as last (same in hotend), you can disable the start purge with this.
+It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
+
+### UNLOCK IFS
+Description: Unlocks IFS if ever needed.
+
 ## Flush volumes starting point (OrcaSlicer)
 ### Locations:
 - Nozzle volume: Orca->Printer Settings->Printable space
@@ -112,12 +101,6 @@ Assumes with a small prime tower, if no prime tower then may need to increase bo
 NOTE: Updated [color change g-code](https://github.com/Hrybmo/lessWaste/blob/master/OrcaSlicer_GCODE.md) as of V1.2.31
 
 ### Standard setting:
-- Nozzle volume = 150 mm^3
-- Multiplier = .4
-
-<img width="407" height="412" alt="image" src="https://github.com/user-attachments/assets/6823563f-c27c-432e-8ecc-e2b2387a88a5" />
-
-### Less bleed through:
 - Nozzle volume = 14 mm^3
 - Multiplier = 1
 
