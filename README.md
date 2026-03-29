@@ -10,11 +10,11 @@ _IFS_VARS ifs_unlock_after_boot=1
 _IFS_VARS ifs_unlock_after_boot=0
 
 ### Test conditions:
-- OrcaSlicer 2.3.1
+- OrcaSlicer 2.3.2
 - Enabled Plugins: recommend,lessWaste,notify,timelapse
 - Klipper 12
 - USB camera
-- zmod v0.0.0-106
+- zmod 1.7.0
 - recommend 1.1.6
 - zmod md5 post proccessing
 - AD5X 3.0.3
