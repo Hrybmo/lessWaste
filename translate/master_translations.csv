@@ -108,3 +108,9 @@ UNLOCK IFS;РАЗБЛОКИРОВАТЬ ИФС;IFS entsperren;DESBLOQUEAR IFS;D�
 Same filament detected, skipping with smart purge;Обнаружена та же нить накала, пропуск при интеллектуальной очистке;Gleiches Filament erkannt, Überspringen mit Smart Purge;Se detectó el mismo filamento, saltando con purga inteligente;Même filament détecté, saut avec purge intelligente;Stesso filamento rilevato, saltato con spurgo intelligente;同じフィラメントが検出され、スマートパージでスキップ;동일한 필라멘트가 감지됨, 스마트 퍼지로 건너뛰기;Mesmo filamento detectado, pulando com purga inteligente;Aynı filaman algılandı, akıllı temizlemeyle atlanıyor;检测到相同的灯丝，通过智能清除跳过
 SMART_PURGE:OFF;SMART_PURGE: ВЫКЛ.;SMART_PURGE:AUS;SMART_PURGE: DESACTIVADO;SMART_PURGE : NON;SMART_SPURGO: SPENTO;スマートパージ:オフ;SMART_PURGE:꺼짐;SMART_PURGE:DESLIGADO;SMART_PURGE:KAPALI;SMART_PURGE：关闭
 SMART_PURGE:ON;SMART_PURGE:ВКЛ.;SMART_PURGE:EIN;SMART_PURGE: ENCENDIDO;SMART_PURGE : ACTIVÉ;SMART_SPURGO:ON;スマートパージ:オン;스마트_퍼지:ON;SMART_PURGE:ON;SMART_PURGE:AÇIK;SMART_PURGE：开
+START_P:OFF;START_P:ВЫКЛ.;START_P:AUS;START_P: APAGADO;START_P : OFF;START_P:OFF;START_P:オフ;START_P:해제;START_P:DESLIGADO;BAŞLANGIÇ_P:KAPALI;START_P：关闭
+START_P:ON;START_P:ВКЛ.;START_P:EIN;START_P: ENCENDIDO;START_P : ACTIVÉ;START_P:ON;START_P:オン;START_P:켜짐;START_P:ATIVADO;BAŞLANGIÇ_P:AÇIK;START_P：开启
+START_P:T;START_P:Т;START_P:T;START_P:T;START_P : T;START_P:T;START_P:T;START_P:T;START_P:T;START_P:T;START_P：T
+START_P:TC;START_P:TC;START_P:TC;START_P:TC;START_P :TC;START_P:TC;START_P:TC;START_P:TC;START_P:TC;START_P:TC;START_P：TC
+START_P:Ty;START_P:Ти;START_P:Ty;START_P:Ty;START_P : Ty;START_P:Tip;START_P:タイ;START_P:타이;START_P:Ty;START_P:Ty;START_P：泰
+START_P:TyCo;START_P: Тайко;START_P:TyCo;START_P:TyCo;START_P :TyCo;START_P:TyCo;START_P:ティコ;START_P:타이코;START_P:TyCo;START_P:TyCo;START_P：泰科公司
