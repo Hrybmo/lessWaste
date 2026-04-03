@@ -69,11 +69,11 @@ Example below: If filament one runs out then filament two will automatically loa
 Description: Performs a bed mesh leveling in the print area at start.
 
 ### START_P
-Description: Start Purge control.
-OFF = No start purge
-ON = Run start purge
-TyCo = Run start purge when the Type or Color is different than last filament run in the hotend
-Ty = Run start purge when the Type is different than last filament in the hotend
+Description: Control the purge out the back when starting a print.
+- OFF = No start purge
+- ON = Run start purge
+- TyCo = Run start purge when the Type or Color is different than last filament run in the hotend
+- Ty = Run start purge when the Type is different than last filament in the hotend
 
 ### L_PURGE
 Description: Creates a purge line in front or to the side of the print.
