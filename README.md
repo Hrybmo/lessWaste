@@ -1,6 +1,7 @@
 # lessWaste plugin for the AD5X with ZMOD and OrcaSlicer
 ## Based on [bambufy](https://github.com/function3d/bambufy/tree/V1.2.10) AD5X V1.2.10
 
+### Goals: To minimize waste and print time.
 ### Features: Backups, Channel swap, Virtual channels, Purge control, Recovery, and start UI.
  
 ### For unlocking IFS on boot:
@@ -67,6 +68,13 @@ Example below: If filament one runs out then filament two will automatically loa
 ### LEVELING
 Description: Performs a bed mesh leveling in the print area at start.
 
+### START_P
+Description: Control the purge out the back when starting a print.
+- OFF = No start purge
+- ON = Run start purge
+- Ty/Co = Run start purge when the Type or Color is different than last filament run in the hotend
+- TYPE = Run start purge when the Type is different than last filament in the hotend
+
 ### L_PURGE
 Description: Creates a purge line in front or to the side of the print.
 
@@ -80,10 +88,6 @@ Description: Provide on screen information when issues occur.
 
 ### Channel swap
 Description: press the tool in the dialog to swap with another location.
-
-### SMART PURGE
-Description: If starting a new print with the same filament as last (same in hotend), you can disable the start purge with this.
-It is recommended to have some type of small priming on the build plate when disabled (skirt, purge line, etc.).
 
 ### UNLOCK IFS
 Description: Unlocks IFS if ever needed.
