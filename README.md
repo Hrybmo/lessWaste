@@ -72,7 +72,7 @@ Description: Performs a bed mesh leveling in the print area at start.
 Description: Control the purge out the back when starting a print.
 - OFF = No start purge
 - ON = Run start purge
-- Ty/Co = Run start purge when the Type or Color is different than last filament run in the hotend
+- T/C = Run start purge when the Type or Color is different than last filament run in the hotend
 - TYPE = Run start purge when the Type is different than last filament in the hotend
 
 ### L_PURGE
