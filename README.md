@@ -59,7 +59,7 @@ Best used for: Where it is more efficient to build a small or no prime tower ins
 
 ## Settings
 ### Backup
-Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). When printing, consumed channels can be refilled once there are no backups left and/or there is a pause. Backup is not available in Virtual channel mode.
+Description: If backup is enabled and there are matching filament types and color filaments, they will join. The backup locations are set on start and consumed during print. If backup is triggered during a print, the lowest available filament number is activated (scans 1 -> 4). Consumed channels can be refilled during printing or during a pause. Backup is not available in Virtual channel mode.
 
 Example below: If filament one runs out then filament two will automatically load and continue.
 
