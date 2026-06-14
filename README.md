@@ -38,24 +38,16 @@ _IFS_VARS ifs_unlock_after_boot=0
 You have two main options and depending on the type of print, one may be better than the other.
 
 ### Option 1: Purge in prime tower
-Description: Instead of purging out the back, a prime tower is used for purging.
+Description: Instead of purging out the back, a prime tower is used for purging. Use "Type 2" wipe tower.
 
-Pros: The settings "Flush into object's infill", "Flush into objects' support", and "flushing volumes" are respected.
+Pros: Respects "flushing volumes" when purging.
 
 Cons: A large prime tower is generally required, taking up volume.
 
-Best used for: Flushing into things. 
-
-Notes: Place the prime tower close to the cutter area when using "No sparse layers (beta)".
-
 ### Option 2: Purge out the back
-Description: Purge out the back like stock but with more control.
+Description: Purge out the back like stock but with more control. Use "Type 1" wipe tower.
 
 Pros: A small or no prime tower is needed. Respects "flushing volumes" when purging.
-
-Cons: The settings "Flush into object's infill" and "Flush into objects' support" do not reduce the purge amount.
-
-Best used for: Where it is more efficient to build a small or no prime tower instead of a large one on every layer.
 
 ## Settings
 ### Backup
