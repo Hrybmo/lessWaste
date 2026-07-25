@@ -174,7 +174,8 @@ def get_exclude_object_define_streaming(first_layer_text):
     minx = miny = float("inf")
     maxx = maxy = float("-inf")
 
-    for line in first_layer_text.splitlines():
+    for raw_line in first_layer_text.splitlines():
+        line = raw_line.split(";", 1)[0].strip()
         parts = line.split()
         if not parts:
             continue
@@ -183,12 +184,15 @@ def get_exclude_object_define_streaming(first_layer_text):
 
         x = y = e = None
         for p in parts[1:]:
-            if p.startswith("X"):
-                x = float(p[1:])
-            elif p.startswith("Y"):
-                y = float(p[1:])
-            elif p.startswith("E"):
-                e = float(p[1:])
+            try:
+                if p.startswith("X"):
+                    x = float(p[1:])
+                elif p.startswith("Y"):
+                    y = float(p[1:])
+                elif p.startswith("E"):
+                    e = float(p[1:])
+            except ValueError:
+                continue
 
         if e is None or e <= 0:
             continue
